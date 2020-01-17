@@ -17,4 +17,5 @@ struct PhotoJournal: Decodable {
     let likes: Int
     let favorites: Int
     let tags: String
+    let previewURL: String
 }

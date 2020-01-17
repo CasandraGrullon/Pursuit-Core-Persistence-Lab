@@ -45,6 +45,13 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = collectionView.indexPathsForSelectedItems?.first else {
+            fatalError("could not segue")
+        }
+        detailVC.photo = photos[indexPath.row]
+    }
 
 }
 
@@ -74,16 +81,16 @@ extension SearchViewController: UICollectionViewDataSource {
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSpacing: CGFloat = 0.25
+        let itemSpacing: CGFloat = 10
         let maxWidth = UIScreen.main.bounds.size.width
-        let numberOfItems: CGFloat = 4
+        let numberOfItems: CGFloat = 3
         let totalSpace: CGFloat = numberOfItems * itemSpacing
         let itemWidth: CGFloat = (maxWidth - totalSpace) / numberOfItems
         
         return CGSize(width: itemWidth, height: itemWidth)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
+        return UIEdgeInsets(top: 1, left: 10, bottom: 1, right: 10)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 1
