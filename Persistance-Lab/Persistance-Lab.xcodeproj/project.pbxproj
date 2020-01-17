@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C660C4F623D1058000844134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C4F523D1058000844134 /* AppDelegate.swift */; };
 		C660C4F823D1058000844134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C4F723D1058000844134 /* SceneDelegate.swift */; };
-		C660C4FA23D1058000844134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C4F923D1058000844134 /* ViewController.swift */; };
+		C660C4FA23D1058000844134 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C4F923D1058000844134 /* SearchViewController.swift */; };
 		C660C4FD23D1058000844134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C660C4FB23D1058000844134 /* Main.storyboard */; };
 		C660C4FF23D1058100844134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C660C4FE23D1058100844134 /* Assets.xcassets */; };
 		C660C50223D1058100844134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C660C50023D1058100844134 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		C660C4F223D1058000844134 /* Persistance-Lab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Persistance-Lab.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C660C4F523D1058000844134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C660C4F723D1058000844134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C660C4F923D1058000844134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C660C4F923D1058000844134 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C660C4FC23D1058000844134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C660C4FE23D1058100844134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C660C50123D1058100844134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		C660C51723D1FB4E00844134 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C660C4F923D1058000844134 /* ViewController.swift */,
+				C660C4F923D1058000844134 /* SearchViewController.swift */,
 				C660C51823D1FB7100844134 /* DetailViewController.swift */,
 				C660C51A23D1FBB100844134 /* Cells */,
 			);
@@ -194,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C660C51423D1F85F00844134 /* PhotoJournal.swift in Sources */,
-				C660C4FA23D1058000844134 /* ViewController.swift in Sources */,
+				C660C4FA23D1058000844134 /* SearchViewController.swift in Sources */,
 				C660C51623D1F9CD00844134 /* PhotoJournalAPIClient.swift in Sources */,
 				C660C50D23D1F7B900844134 /* Secrets.swift in Sources */,
 				C660C51C23D1FBE000844134 /* PhotoCell.swift in Sources */,
