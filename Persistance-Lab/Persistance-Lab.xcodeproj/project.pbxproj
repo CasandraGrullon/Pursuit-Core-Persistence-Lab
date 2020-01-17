@@ -13,6 +13,7 @@
 		C660C4FD23D1058000844134 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C660C4FB23D1058000844134 /* Main.storyboard */; };
 		C660C4FF23D1058100844134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C660C4FE23D1058100844134 /* Assets.xcassets */; };
 		C660C50223D1058100844134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C660C50023D1058100844134 /* LaunchScreen.storyboard */; };
+		C660C50D23D1F7B900844134 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C50C23D1F7B900844134 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C660C4FE23D1058100844134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C660C50123D1058100844134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C660C50323D1058100844134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C660C50C23D1F7B900844134 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		C660C4E923D1058000844134 = {
 			isa = PBXGroup;
 			children = (
+				C660C50E23D1F7BD00844134 /* Secrets */,
 				C660C4F423D1058000844134 /* Persistance-Lab */,
 				C660C4F323D1058000844134 /* Products */,
 			);
@@ -65,6 +68,14 @@
 				C660C50323D1058100844134 /* Info.plist */,
 			);
 			path = "Persistance-Lab";
+			sourceTree = "<group>";
+		};
+		C660C50E23D1F7BD00844134 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				C660C50C23D1F7B900844134 /* Secrets.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C660C4FA23D1058000844134 /* ViewController.swift in Sources */,
+				C660C50D23D1F7B900844134 /* Secrets.swift in Sources */,
 				C660C4F623D1058000844134 /* AppDelegate.swift in Sources */,
 				C660C4F823D1058000844134 /* SceneDelegate.swift in Sources */,
 			);
