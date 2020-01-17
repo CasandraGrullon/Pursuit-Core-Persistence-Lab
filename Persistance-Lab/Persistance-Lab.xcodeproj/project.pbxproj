@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,11 @@
 		C660C4FF23D1058100844134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C660C4FE23D1058100844134 /* Assets.xcassets */; };
 		C660C50223D1058100844134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C660C50023D1058100844134 /* LaunchScreen.storyboard */; };
 		C660C50D23D1F7B900844134 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C50C23D1F7B900844134 /* Secrets.swift */; };
+		C660C51223D1F84E00844134 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = C660C51123D1F84E00844134 /* ImageKit */; };
+		C660C51423D1F85F00844134 /* PhotoJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C51323D1F85F00844134 /* PhotoJournal.swift */; };
+		C660C51623D1F9CD00844134 /* PhotoJournalAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C51523D1F9CD00844134 /* PhotoJournalAPIClient.swift */; };
+		C660C51923D1FB7100844134 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C51823D1FB7100844134 /* DetailViewController.swift */; };
+		C660C51C23D1FBE000844134 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C660C51B23D1FBE000844134 /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,10 @@
 		C660C50123D1058100844134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C660C50323D1058100844134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C660C50C23D1F7B900844134 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		C660C51323D1F85F00844134 /* PhotoJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournal.swift; sourceTree = "<group>"; };
+		C660C51523D1F9CD00844134 /* PhotoJournalAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoJournalAPIClient.swift; sourceTree = "<group>"; };
+		C660C51823D1FB7100844134 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C660C51B23D1FBE000844134 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C660C51223D1F84E00844134 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,9 +69,10 @@
 		C660C4F423D1058000844134 /* Persistance-Lab */ = {
 			isa = PBXGroup;
 			children = (
+				C660C50F23D1F80F00844134 /* Model */,
 				C660C4F523D1058000844134 /* AppDelegate.swift */,
 				C660C4F723D1058000844134 /* SceneDelegate.swift */,
-				C660C4F923D1058000844134 /* ViewController.swift */,
+				C660C51723D1FB4E00844134 /* Controllers */,
 				C660C4FB23D1058000844134 /* Main.storyboard */,
 				C660C4FE23D1058100844134 /* Assets.xcassets */,
 				C660C50023D1058100844134 /* LaunchScreen.storyboard */,
@@ -76,6 +87,33 @@
 				C660C50C23D1F7B900844134 /* Secrets.swift */,
 			);
 			path = Secrets;
+			sourceTree = "<group>";
+		};
+		C660C50F23D1F80F00844134 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C660C51323D1F85F00844134 /* PhotoJournal.swift */,
+				C660C51523D1F9CD00844134 /* PhotoJournalAPIClient.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C660C51723D1FB4E00844134 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C660C4F923D1058000844134 /* ViewController.swift */,
+				C660C51823D1FB7100844134 /* DetailViewController.swift */,
+				C660C51A23D1FBB100844134 /* Cells */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C660C51A23D1FBB100844134 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C660C51B23D1FBE000844134 /* PhotoCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +132,9 @@
 			dependencies = (
 			);
 			name = "Persistance-Lab";
+			packageProductDependencies = (
+				C660C51123D1F84E00844134 /* ImageKit */,
+			);
 			productName = "Persistance-Lab";
 			productReference = C660C4F223D1058000844134 /* Persistance-Lab.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +163,9 @@
 				Base,
 			);
 			mainGroup = C660C4E923D1058000844134;
+			packageReferences = (
+				C660C51023D1F84E00844134 /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = C660C4F323D1058000844134 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,10 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C660C51423D1F85F00844134 /* PhotoJournal.swift in Sources */,
 				C660C4FA23D1058000844134 /* ViewController.swift in Sources */,
+				C660C51623D1F9CD00844134 /* PhotoJournalAPIClient.swift in Sources */,
 				C660C50D23D1F7B900844134 /* Secrets.swift in Sources */,
+				C660C51C23D1FBE000844134 /* PhotoCell.swift in Sources */,
 				C660C4F623D1058000844134 /* AppDelegate.swift in Sources */,
 				C660C4F823D1058000844134 /* SceneDelegate.swift in Sources */,
+				C660C51923D1FB7100844134 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +398,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C660C51023D1F84E00844134 /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C660C51123D1F84E00844134 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C660C51023D1F84E00844134 /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C660C4EA23D1058000844134 /* Project object */;
 }
