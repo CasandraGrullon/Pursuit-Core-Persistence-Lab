@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct PhotoJournalHits: Decodable {
+struct PhotoJournalHits: Codable {
     let hits: [PhotoJournal]
 }
-struct PhotoJournal: Decodable {
+struct PhotoJournal: Codable {
     let largeImageURL: String
     let webformatURL: String
     let likes: Int
