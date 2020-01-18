@@ -118,6 +118,9 @@
                                 <rect key="frame" x="373" y="546" width="21" height="22"/>
                                 <color key="tintColor" red="1" green="0.4137047928" blue="0.86374463069999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="heart" catalog="system"/>
+                                <connections>
+                                    <action selector="addToFavorites:" destination="usl-3y-zZ4" eventType="touchUpInside" id="slC-ZT-VuI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -175,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="625" y="120"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="YH8-0u-QNu">
             <objects>
-                <viewController id="vrS-xG-2zw" sceneMemberID="viewController">
+                <viewController id="vrS-xG-2zw" customClass="FavoritesViewController" customModule="Persistance_Lab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FF9-HN-OFZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +196,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tyX-M5-8dQ">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="tyX-M5-8dQ" customClass="PhotoCell" customModule="Persistance_Lab" customModuleProvider="target">
                                         <rect key="frame" x="42" y="0.0" width="330" height="234"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TbI-OA-qhi">
@@ -229,6 +232,9 @@
                         <viewLayoutGuide key="safeArea" id="mBI-4j-w8q"/>
                     </view>
                     <navigationItem key="navigationItem" id="Deu-ra-7pG"/>
+                    <connections>
+                        <outlet property="collectionView" destination="GfC-KE-tDe" id="epR-JZ-Kfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5r-uL-Co9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -278,6 +284,6 @@
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TLu-ch-MRP"/>
+        <segue reference="JjR-aa-Qux"/>
     </inferredMetricsTieBreakers>
 </document>

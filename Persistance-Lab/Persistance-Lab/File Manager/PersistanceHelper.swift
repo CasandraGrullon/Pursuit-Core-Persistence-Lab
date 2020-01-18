@@ -40,7 +40,7 @@ class PersistanceHelper {
         }
     }
     
-    static func readData() throws -> [PhotoJournal] {
+    static func loadData() throws -> [PhotoJournal] {
         let url = FileManager.pathToDocumentsDirectory(with: filename)
         
         if FileManager.default.fileExists(atPath: url.path) {

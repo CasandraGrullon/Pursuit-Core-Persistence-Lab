@@ -42,8 +42,20 @@ class DetailViewController: UIViewController {
                 }
             }
         }
-        
     }
-
+    
+    @IBAction func addToFavorites(_ sender: UIButton) {
+        guard let favePhoto = photo else {
+            return
+        }
+        do {
+            try PersistanceHelper.create(photo: favePhoto)
+        } catch {
+            print("error saving to favorites: \(error)")
+        }
+        
+        //insert cells to collectionview???
+    }
+    
 
 }
