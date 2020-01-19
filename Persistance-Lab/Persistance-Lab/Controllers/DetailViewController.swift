@@ -25,8 +25,8 @@ class DetailViewController: UIViewController {
     }
     
     func updateUI() {
-        likesLabel.text = "Liked \(photo?.likes ?? 1) times"
-        favoritesLabel.text = "Favorited \(photo?.favorites ?? 1) times"
+        likesLabel.text = "Likes \(photo?.likes ?? 1)"
+        favoritesLabel.text = "Favorited \(photo?.favorites ?? 1)"
         previewURLLabel.text = "preview: \(photo?.previewURL ?? "")"
         webformatURLLabel.text = photo?.webformatURL
         
@@ -44,18 +44,16 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @IBAction func addToFavorites(_ sender: UIButton) {
-        guard let favePhoto = photo else {
-            return
-        }
-        do {
-            try PersistanceHelper.create(photo: favePhoto)
-        } catch {
-            print("error saving to favorites: \(error)")
+    @IBAction func addToFavorite(segue: UIStoryboardSegue) {
+        guard let favoritesVC = segue.source as? FavoritesViewController, let favorite = favoritesVC.favorited.first else {
+            fatalError("in unwind segue")
         }
         
-        //insert cells to collectionview???
+        do {
+            try PersistanceHelper.create(photo: favorite)
+        } catch {
+            print("could not create favorites")
+        }
+        
     }
-    
-
 }
