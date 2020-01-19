@@ -11,6 +11,7 @@ import UIKit
 class FavoriteCell: UICollectionViewCell {
     
     @IBOutlet weak var photoImage: UIImageView!
+    
     func configureCell(for fave: PhotoJournal) {
         photoImage.getImage(with: fave.largeImageURL) { [weak self] (result) in
             switch result {

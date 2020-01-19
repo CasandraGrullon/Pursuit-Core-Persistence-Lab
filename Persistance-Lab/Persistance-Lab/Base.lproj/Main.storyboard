@@ -124,7 +124,7 @@
                                 <color key="tintColor" red="1" green="0.4137047928" blue="0.86374463069999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" image="heart" catalog="system"/>
                                 <connections>
-                                    <segue destination="EOc-2Y-jJl" kind="unwind" unwindAction="addToFavoriteWithSegue:" id="EwH-ZC-CW4"/>
+                                    <action selector="addToFavorites:" destination="usl-3y-zZ4" eventType="touchUpInside" id="gBv-9m-Jni"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -161,7 +161,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gu-8y-ALy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="EOc-2Y-jJl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2086" y="453"/>
         </scene>

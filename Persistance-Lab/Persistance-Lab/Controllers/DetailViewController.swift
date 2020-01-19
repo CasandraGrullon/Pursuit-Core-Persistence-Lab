@@ -44,16 +44,19 @@ class DetailViewController: UIViewController {
         }
     }
     
-    @IBAction func addToFavorite(segue: UIStoryboardSegue) {
-        guard let favoritesVC = segue.source as? FavoritesViewController, let favorite = favoritesVC.favorited.first else {
-            fatalError("in unwind segue")
+    @IBAction func addToFavorites(_ sender: UIButton) {
+        guard let faved = photo else {
+            return
         }
+        let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL)
         
-        do {
-            try PersistanceHelper.create(photo: favorite)
-        } catch {
-            print("could not create favorites")
+        if sender.isSelected == true {
+            do {
+                try PersistanceHelper.create(photo: fave)
+            } catch {
+                print("cannot create fave \(error)")
+            }
         }
-        
     }
+    
 }
