@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController {
     var favorited = [PhotoJournal]() {
         didSet{
             DispatchQueue.main.async {
+                self.loadFaves()
                 self.collectionView.reloadData()
             }
         }
@@ -39,6 +40,7 @@ class FavoritesViewController: UIViewController {
         }
         detailVC.photo = favorited[indexPath.row]
     }
+    
 }
 
 extension FavoritesViewController: UICollectionViewDataSource {
@@ -55,14 +57,14 @@ extension FavoritesViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.collectionView.deleteItems(at: [indexPath])
-        do{
-            try PersistanceHelper.deletePhoto(photo: indexPath.row)
-        } catch {
-            print("delete error: \(error)")
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        self.collectionView.deleteItems(at: [indexPath])
+//        do{
+//            try PersistanceHelper.deletePhoto(photo: indexPath.row)
+//        } catch {
+//            print("delete error: \(error)")
+//        }
+//    }
     
 }
 
@@ -73,7 +75,6 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
         let numberOfItems: CGFloat = 3
         let totalSpace: CGFloat = numberOfItems * itemSpacing
         let itemWidth: CGFloat = (maxWidth - totalSpace) / numberOfItems
-        
         return CGSize(width: itemWidth, height: itemWidth)
     }
     

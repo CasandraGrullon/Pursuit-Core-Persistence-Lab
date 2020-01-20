@@ -50,12 +50,12 @@ class DetailViewController: UIViewController {
         }
         let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL)
         
-        if sender.isSelected == true {
+        //if sender.isSelected == true {
             do {
                 try PersistanceHelper.create(photo: fave)
             } catch {
                 print("cannot create fave \(error)")
-            }
+            //}
         }
     }
     
