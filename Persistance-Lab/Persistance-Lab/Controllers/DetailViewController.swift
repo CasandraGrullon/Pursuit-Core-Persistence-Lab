@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var favoritesLabel: UILabel!
     @IBOutlet weak var previewURLLabel: UILabel!
     @IBOutlet weak var webformatURLLabel: UILabel!
@@ -29,6 +30,9 @@ class DetailViewController: UIViewController {
         favoritesLabel.text = "Favorited \(photo?.favorites ?? 1)"
         previewURLLabel.text = "preview: \(photo?.previewURL ?? "")"
         webformatURLLabel.text = photo?.webformatURL
+        let tags = photo?.tags.components(separatedBy: ", ")
+        let hashtags = tags?.joined(separator: " #")
+        tagsLabel.text = "#\(hashtags ?? "")"
         
         imageView.getImage(with: photo?.largeImageURL ?? "") { [weak self] (result) in
             switch result {
