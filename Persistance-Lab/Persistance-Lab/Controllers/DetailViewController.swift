@@ -56,8 +56,11 @@ class DetailViewController: UIViewController {
         
         let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL, favedBy: "Casandra")
 
+        let filledHeart = UIImage(systemName: "heart.filled")
+        
             do {
                 try PersistanceHelper.create(photo: fave)
+                sender.setImage(filledHeart, for: .normal)
             } catch {
                 print("cannot create fave \(error)")
             }
