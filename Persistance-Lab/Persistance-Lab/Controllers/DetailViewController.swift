@@ -20,6 +20,8 @@ class DetailViewController: UIViewController {
     
     var photo: PhotoJournal?
     
+    var favorited = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -56,11 +58,20 @@ class DetailViewController: UIViewController {
         let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL, favedBy: "Casandra")
 
         let filledHeart = UIImage(systemName: "heart.fill")
+        let emptyHeart = UIImage(systemName: "heart")
+        
+        favorited.toggle()
+        
+        if favorited {
+            sender.setImage(filledHeart, for: .normal)
+            sender.tintColor = .red
+        } else {
+            sender.setImage(emptyHeart, for: .normal)
+        }
         
             do {
                 try PersistanceHelper.create(photo: fave)
-                sender.setImage(filledHeart, for: .normal)
-                sender.tintColor = .red
+                
             } catch {
                 print("cannot create fave \(error)")
             }
