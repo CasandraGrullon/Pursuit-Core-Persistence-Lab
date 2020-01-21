@@ -25,8 +25,9 @@ class FavoritesViewController: UIViewController {
         loadFaves()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
     }
-
+    
     func loadFaves() {
         do {
             favorited = try PersistanceHelper.loadData().filter { $0.favedBy == "Casandra"}
@@ -54,19 +55,39 @@ extension FavoritesViewController: UICollectionViewDataSource {
         }
         let photo = favorited[indexPath.row]
         cell.configureCell(for: photo)
+        cell.delegate = self
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.collectionView.deleteItems(at: [indexPath])
-        do{
+}
+extension FavoritesViewController: favoriteCellDelegate {
+    func didLongPress(_ faveCell: FavoriteCell) {
+        guard let indexPath = collectionView.indexPath(for: faveCell) else {
+            return
+        }
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] alertAction in
+            self?.deleteImage(indexPath: indexPath)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true)
+    }
+    private func deleteImage(indexPath: IndexPath) {
+        do {
             try PersistanceHelper.deletePhoto(photo: indexPath.row)
+            favorited.remove(at: indexPath.row)
+            collectionView.reloadItems(at: [indexPath])
         } catch {
-            print("delete error: \(error)")
+            print("delete error \(error)")
         }
     }
-    
 }
+
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

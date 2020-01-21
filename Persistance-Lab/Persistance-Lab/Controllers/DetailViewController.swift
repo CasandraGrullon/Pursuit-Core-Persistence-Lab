@@ -56,7 +56,7 @@ class DetailViewController: UIViewController {
         }
         
         let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL, favedBy: "Casandra")
-
+        
         let filledHeart = UIImage(systemName: "heart.fill")
         let emptyHeart = UIImage(systemName: "heart")
         
@@ -69,13 +69,13 @@ class DetailViewController: UIViewController {
             sender.setImage(emptyHeart, for: .normal)
         }
         
-            do {
-                try PersistanceHelper.create(photo: fave)
-                
-            } catch {
-                print("cannot create fave \(error)")
-            }
-
+        do {
+            try PersistanceHelper.create(photo: fave)
+            
+        } catch {
+            print("cannot create fave \(error)")
+        }
+        
     }
     
 }
