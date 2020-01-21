@@ -29,7 +29,7 @@ class FavoritesViewController: UIViewController {
 
     func loadFaves() {
         do {
-            favorited = try PersistanceHelper.loadData()
+            favorited = try PersistanceHelper.loadData().filter { $0.favedBy == "Casandra"}
         } catch {
             print("load data error")
         }

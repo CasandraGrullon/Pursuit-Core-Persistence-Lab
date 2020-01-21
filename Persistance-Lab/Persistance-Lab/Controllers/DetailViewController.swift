@@ -10,7 +10,7 @@ import UIKit
 import ImageKit
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var webformatURLLabel: UILabel!
     
     var photo: PhotoJournal?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +53,15 @@ class DetailViewController: UIViewController {
         guard let faved = photo else {
             return
         }
-        let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL)
         
-        //if sender.isSelected == true {
+        let fave = PhotoJournal(largeImageURL: faved.largeImageURL, webformatURL: faved.webformatURL, likes: faved.likes, favorites: faved.favorites, tags: faved.tags, previewURL: faved.previewURL, favedBy: "Casandra")
+
             do {
                 try PersistanceHelper.create(photo: fave)
             } catch {
                 print("cannot create fave \(error)")
-            //}
-        }
+            }
+
     }
     
 }

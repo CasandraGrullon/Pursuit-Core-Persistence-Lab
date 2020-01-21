@@ -18,4 +18,5 @@ struct PhotoJournal: Codable {
     let favorites: Int
     let tags: String
     let previewURL: String
+    let favedBy: String?
 }
