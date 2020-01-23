@@ -11,21 +11,25 @@ import UIKit
 class FavoritesViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var favorited = [PhotoJournal]() {
-        didSet{
-            DispatchQueue.main.async {
-                self.loadFaves()
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    var favorited = [PhotoJournal]()
+//        didSet{
+//            DispatchQueue.main.async {
+//                self.loadFaves()
+//                self.collectionView.reloadData()
+//            }
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFaves()
         collectionView.dataSource = self
         collectionView.delegate = self
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        loadFaves()
     }
     
     func loadFaves() {
@@ -33,6 +37,9 @@ class FavoritesViewController: UIViewController {
             favorited = try PersistanceHelper.loadData().filter { $0.favedBy == "Casandra"}
         } catch {
             print("load data error")
+        }
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -58,8 +65,8 @@ extension FavoritesViewController: UICollectionViewDataSource {
         cell.delegate = self
         return cell
     }
-    
 }
+
 extension FavoritesViewController: favoriteCellDelegate {
     func didLongPress(_ faveCell: FavoriteCell) {
         guard let indexPath = collectionView.indexPath(for: faveCell) else {
@@ -81,13 +88,14 @@ extension FavoritesViewController: favoriteCellDelegate {
         do {
             try PersistanceHelper.deletePhoto(photo: indexPath.row)
             favorited.remove(at: indexPath.row)
-            collectionView.reloadItems(at: [indexPath])
+            //loadFaves()
+            //collectionView.reloadItems(at: [indexPath])
         } catch {
             print("delete error \(error)")
         }
+        loadFaves()
     }
 }
-
 
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

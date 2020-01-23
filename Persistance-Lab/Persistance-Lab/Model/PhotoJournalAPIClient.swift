@@ -35,8 +35,6 @@ struct PhotoJournalAPIClient {
                     completion(.failure(.decodingError(error)))
                 }
             }
-        }
-        
-        
+        } 
     }
 }
