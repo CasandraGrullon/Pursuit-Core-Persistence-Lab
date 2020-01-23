@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var favoritesLabel: UILabel!
     @IBOutlet weak var previewURLLabel: UILabel!
     @IBOutlet weak var webformatURLLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     var photo: PhotoJournal?
     
@@ -62,11 +63,11 @@ class DetailViewController: UIViewController {
         
         favorited.toggle()
         
-        if favorited {
-            sender.setImage(filledHeart, for: .normal)
+        if favorited == false {
+            sender.setBackgroundImage(filledHeart, for: .normal)
             sender.tintColor = .red
         } else {
-            sender.setImage(emptyHeart, for: .normal)
+            sender.setBackgroundImage(emptyHeart, for: .normal)
         }
         
         do {

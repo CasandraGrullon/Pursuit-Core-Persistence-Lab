@@ -12,13 +12,6 @@ class FavoritesViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var favorited = [PhotoJournal]()
-//        didSet{
-//            DispatchQueue.main.async {
-//                self.loadFaves()
-//                self.collectionView.reloadData()
-//            }
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +36,13 @@ class FavoritesViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let detailVC = segue.destination as? DetailViewController, let indexPath = collectionView.indexPathsForSelectedItems?.first else {
-            fatalError("could not segue")
+        if segue.identifier == "favorites" {
+            guard let detailVC = segue.destination as? DetailViewController, let indexPath = collectionView.indexPathsForSelectedItems?.first else {
+                fatalError("could not segue")
+            }
+            detailVC.photo = favorited[indexPath.row]
         }
-        detailVC.photo = favorited[indexPath.row]
+
     }
     
 }
